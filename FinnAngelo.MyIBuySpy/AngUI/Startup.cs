@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
+using Microsoft.OpenApi.Models;
 
 namespace FinnAngelo.MyIBuySpy.AngUI
 {
@@ -74,6 +75,12 @@ namespace FinnAngelo.MyIBuySpy.AngUI
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddHealthChecks(); // Registers health check services
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FinnAngelo.MyIBuySpy.AngUI", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,6 +90,8 @@ namespace FinnAngelo.MyIBuySpy.AngUI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FinnAngelo.MyIBuySpy.AngUI v1"));
             }
             else
             {

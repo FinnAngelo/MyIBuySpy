@@ -54,7 +54,7 @@ namespace FinnAngelo.MyIBuySpy.AngUI.Areas.Commerce.Controllers
         }
 
         // GET: api/ViewOrderDetails/5
-        [HttpGet]
+        [HttpGet("{orderId}")]
         public async Task<ActionResult<VewOrderDetail>> GetVewOrderDetail(int orderId)
         {
             var orderDetails = await GetViewOrderDetailsQuery()

@@ -56,7 +56,7 @@ namespace FinnAngelo.MyIBuySpy.AngUI.Areas.Commerce.Controllers
         }
 
         // GET: api/ViewOrderDetails/5
-        [HttpGet]
+        [HttpGet("{cartId}")]
         public async Task<ActionResult<IEnumerable<ViewCart>>> GetViewCarts(string cartId)
         {
             var viewCart = await GetViewCartsQuery()

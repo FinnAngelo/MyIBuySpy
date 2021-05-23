@@ -30,7 +30,7 @@ namespace FinnAngelo.MyIBuySpy.AngUI.Areas.Commerce.Controllers
         }
 
         // GET: api/ViewAlsoPurchaseds/5
-        [HttpGet("{id}")]
+        [HttpGet("{orderId}")]
         public async Task<ActionResult<IEnumerable<ViewAlsoPurchased>>> GetViewAlsoPurchaseds(int orderId)
         {
             var viewAlsoPurchaseds = await _context.ViewAlsoPurchaseds

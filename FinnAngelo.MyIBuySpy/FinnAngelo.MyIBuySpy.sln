@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TailspinSpyworks", "TailspinSpyworks\TailspinSpyworks.csproj", "{CA5E3283-E04F-474C-BD51-16F6D735E203}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngUI", "AngUI\AngUI.csproj", "{E6EF9E43-9A6F-4396-85E1-C5625D1E22F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngUI", "AngUI\AngUI.csproj", "{E6EF9E43-9A6F-4396-85E1-C5625D1E22F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngUI.Tests", "AngUI.Tests\AngUI.Tests.csproj", "{010F3BC3-0064-47D6-BC2C-A6D0A4CC4E9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E6EF9E43-9A6F-4396-85E1-C5625D1E22F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6EF9E43-9A6F-4396-85E1-C5625D1E22F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6EF9E43-9A6F-4396-85E1-C5625D1E22F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{010F3BC3-0064-47D6-BC2C-A6D0A4CC4E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010F3BC3-0064-47D6-BC2C-A6D0A4CC4E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010F3BC3-0064-47D6-BC2C-A6D0A4CC4E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010F3BC3-0064-47D6-BC2C-A6D0A4CC4E9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
