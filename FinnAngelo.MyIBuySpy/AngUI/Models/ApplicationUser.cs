@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AngUI.Models
+namespace FinnAngelo.MyIBuySpy.AngUI.Models
 {
     public class ApplicationUser : IdentityUser
     {

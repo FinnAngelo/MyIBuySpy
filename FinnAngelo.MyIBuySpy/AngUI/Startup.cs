@@ -1,5 +1,5 @@
-using AngUI.Data;
-using AngUI.Models;
+using FinnAngelo.MyIBuySpy.AngUI.Data;
+using FinnAngelo.MyIBuySpy.AngUI.Models;
 using DbUp;
 using DbUp.SQLite.Helpers;
 using Microsoft.AspNetCore.Authentication;
@@ -16,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
 
-namespace AngUI
+namespace FinnAngelo.MyIBuySpy.AngUI
 {
     public class Startup
     {

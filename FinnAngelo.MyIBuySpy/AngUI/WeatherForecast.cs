@@ -1,6 +1,6 @@
 using System;
 
-namespace AngUI
+namespace FinnAngelo.MyIBuySpy.AngUI
 {
     public class WeatherForecast
     {

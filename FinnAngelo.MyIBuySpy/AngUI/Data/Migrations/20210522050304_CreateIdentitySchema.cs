@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AngUI.Data.Migrations
+namespace FinnAngelo.MyIBuySpy.AngUI.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace AngUI.Controllers
+namespace FinnAngelo.MyIBuySpy.AngUI.Controllers
 {
     public class OidcConfigurationController : Controller
     {

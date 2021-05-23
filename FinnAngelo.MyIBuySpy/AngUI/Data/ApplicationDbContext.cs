@@ -1,4 +1,4 @@
-﻿using AngUI.Models;
+﻿using FinnAngelo.MyIBuySpy.AngUI.Models;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AngUI.Data
+namespace FinnAngelo.MyIBuySpy.AngUI.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {

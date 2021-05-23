@@ -82,7 +82,7 @@ Scripting Migrations
     ```
 3. Execute the following command in the Package Manager Console:
     ```powershell
-	Script-Migration -Out Auth\Data\Scripts\001_CreateIdentitySchema.sql
+	Script-Migration -Out AngUI\Data\Scripts\001_CreateIdentitySchema.sql
     ```
 4. Make sure all the sripts are embedded resources:
     ```xml
@@ -90,6 +90,33 @@ Scripting Migrations
       <EmbeddedResource Include="Data\Scripts\*.*" />
     </ItemGroup>
 	```
+
+### Scaffold IBuySpy Commercve database
+
+Links
+
+- <https://docs.microsoft.com/en-us/ef/core/managing-schemas/scaffolding?tabs=dotnet-core-cli>
+- <https://docs.microsoft.com/en-us/ef/core/cli/dotnet>
+- <https://docs.microsoft.com/en-us/ef/core/cli/powershell>
+
+Add new Commerce project with `FinnAngelo.MyIBuySpy.Commerce` assemblyname and namespace
+
+```powershell
+
+Add-Package Microsoft.EntityFrameworkCore.Design
+Add-Package Microsoft.EntityFrameworkCore.Sqlite
+Add-Package Microsoft.EntityFrameworkCore.SqlServer
+
+Scaffold-DbContext "Data Source=localhost;Initial Catalog=Commerce;User ID=sa;Password=Password_01;Connect Timeout=30;" `
+-Context CommerceDbContext `
+-ContextDir Data -OutputDir Models `
+Microsoft.EntityFrameworkCore.SqlServer
+
+dotnet ef dbcontext scaffold "Data Source=localhost;Initial Catalog=Commerce;User ID=sa;Password=Password_01;Connect Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer --context-dir Data --output-dir Models --namespace FinnAngelo.MyIBuySpy.AngUI
+
+# Then move the files into the AngUI project and do the `Add-Migration` and `Script-Migration` for sqlite
+```
+
 
 ## Install Docker Desktop
 
