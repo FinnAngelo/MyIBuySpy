@@ -99,24 +99,43 @@ Links
 - <https://docs.microsoft.com/en-us/ef/core/cli/dotnet>
 - <https://docs.microsoft.com/en-us/ef/core/cli/powershell>
 
-Add new Commerce project with `FinnAngelo.MyIBuySpy.Commerce` assemblyname and namespace
 
-```powershell
+Add Commerce Area
 
-Add-Package Microsoft.EntityFrameworkCore.Design
-Add-Package Microsoft.EntityFrameworkCore.Sqlite
-Add-Package Microsoft.EntityFrameworkCore.SqlServer
+- Add Folder called `Areas`
+- Rt-click and add Areas called `Commerce`
+- Add to Startup class:
+  ```csharp
+  app.UseEndpoints(endpoints =>
+  {
+    endpoints.MapControllerRoute(
+      name : "areas",
+      pattern : "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+  });
+  ```
 
-Scaffold-DbContext "Data Source=localhost;Initial Catalog=Commerce;User ID=sa;Password=Password_01;Connect Timeout=30;" `
--Context CommerceDbContext `
--ContextDir Data -OutputDir Models `
-Microsoft.EntityFrameworkCore.SqlServer
-
-dotnet ef dbcontext scaffold "Data Source=localhost;Initial Catalog=Commerce;User ID=sa;Password=Password_01;Connect Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer --context-dir Data --output-dir Models --namespace FinnAngelo.MyIBuySpy.AngUI
-
-# Then move the files into the AngUI project and do the `Add-Migration` and `Script-Migration` for sqlite
+Add new CommerceConnection to connectionstrings in appsettings.json:  
+```json
+"CommerceConnection": "Data Source=localhost;Initial Catalog=Commerce;User ID=sa;Password=Password_01;Connect Timeout=30;",
 ```
 
+Scaffold CommerceDbContext
+
+```powershell
+Install-Package Microsoft.EntityFrameworkCore.Design
+Install-Package Microsoft.EntityFrameworkCore.Sqlite
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+# Because aspnet can use connectionstring - note is SqlServer because scaffolding from existing
+Scaffold-DbContext -Connection "name=CommerceConnection" -Provider Microsoft.EntityFrameworkCore.SqlServer -Context CommerceDbContext -ContextDir Areas\Commerce\Data -OutputDir Areas\Commerce\Models
+```
+
+Add API Controllers with actions, using EntityFramework
+
+- Yeah; just rightclick the folder and add
+- The views are a bit messier as no primary key
+  - I want to get these to be EFCore queries so that Sqlite can use them too
 
 ## Install Docker Desktop
 

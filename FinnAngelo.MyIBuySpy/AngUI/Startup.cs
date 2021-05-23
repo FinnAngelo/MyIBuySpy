@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
 using Microsoft.OpenApi.Models;
+using FinnAngelo.MyIBuySpy.AngUI.Areas.Commerce.Data;
 
 namespace FinnAngelo.MyIBuySpy.AngUI
 {
@@ -56,6 +57,11 @@ namespace FinnAngelo.MyIBuySpy.AngUI
             // DbContext (duh!) for Identity
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(keepAliveConnection)
+                );
+
+            // DbContext for CommerceDb
+            services.AddDbContext<CommerceDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("CommerceConnection"))
                 );
 
             services.AddDatabaseDeveloperPageExceptionFilter();
