@@ -1,6 +1,6 @@
 using System;
 
-namespace FinnAngelo.MyIBuySpy.AngUI
+namespace FinnAngelo.MyIBuySpy.AngUI.Areas.WeatherForecast.Models
 {
     public class WeatherForecast
     {

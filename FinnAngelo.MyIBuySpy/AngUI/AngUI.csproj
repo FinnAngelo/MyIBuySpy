@@ -51,6 +51,8 @@
   <ItemGroup>
     <Folder Include="Areas\Commerce\Models\" />
     <Folder Include="Areas\Commerce\Views\" />
+    <Folder Include="Areas\WeatherForecast\Data\" />
+    <Folder Include="Areas\WeatherForecast\Views\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

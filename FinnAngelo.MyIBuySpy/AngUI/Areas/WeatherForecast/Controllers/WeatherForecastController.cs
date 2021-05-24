@@ -5,8 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinnAngelo.MyIBuySpy.AngUI.Areas.WeatherForecast.Models;
 
-namespace FinnAngelo.MyIBuySpy.AngUI.Controllers
+namespace FinnAngelo.MyIBuySpy.AngUI.Areas.WeatherForecast.Controllers
 {
     [Authorize]
     [ApiController]
@@ -26,10 +27,10 @@ namespace FinnAngelo.MyIBuySpy.AngUI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<Models.WeatherForecast> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 5).Select(index => new Models.WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
