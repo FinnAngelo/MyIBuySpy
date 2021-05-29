@@ -30,6 +30,8 @@ choco install sql-server-management-studio -y
 
 I'm using a docker instance using windows containers - don't forget to switch docker over!
 
+TODO: Try this with `docker pull mcr.microsoft.com/mssql/server` which is the linux one at <https://hub.docker.com/_/microsoft-mssql-server> and isnt depreciated and a billion years old.
+
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V", "Containers") -All
 # Restart PC
