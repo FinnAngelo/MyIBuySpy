@@ -28,17 +28,13 @@ choco install sql-server-management-studio -y
 
 ### Setup SqlServer
 
-I'm using a docker instance using windows containers - don't forget to switch docker over!
+I'm using a docker instance using linux containers - lots faster than windows!
 
-TODO: Try this with `docker pull mcr.microsoft.com/mssql/server` which is the linux one at <https://hub.docker.com/_/microsoft-mssql-server> and isnt depreciated and a billion years old.
+- <https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-powershell>
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V", "Containers") -All
-# Restart PC
-
-docker pull microsoft/mssql-server-windows-developer
-docker run --rm --name SQLServer -d -p 1433:1433 -e sa_password=Password_01 -e ACCEPT_EULA=Y -v C:/GIT/Data:C:/Data microsoft/mssql-server-windows-developer
-
+docker pull mcr.microsoft.com/mssql/server
+docker run --rm --name SQLServer -h SQLServer -d -p 1433:1433 -e "SA_PASSWORD=Password_01" -e "ACCEPT_EULA=Y" -v C:/GIT/Data:/Data mcr.microsoft.com/mssql/server
 ```
 
 ### Setup TailspinIbuySpy Databases
@@ -51,18 +47,18 @@ docker run --rm --name SQLServer -d -p 1433:1433 -e sa_password=Password_01 -e A
    ```sql
    USE [master]
    GO
-   CREATE DATABASE ASPNETDB ON 
-   ( FILENAME = N'C:\data\aspnetdb.mdf' ),
-   ( FILENAME = N'C:\data\aspnetdb_log.ldf' )
-   FOR ATTACH
+   CREATE DATABASE [ASPNETDB] ON 
+   ( FILENAME = N'/Data/aspnetdb.mdf' ),
+   ( FILENAME = N'/Data/aspnetdb_log.ldf' )
+    FOR ATTACH
    GO
    
    USE [master]
    GO
-   CREATE DATABASE Commerce ON 
-   ( FILENAME = N'C:\data\Commerce.mdf' ),
-   ( FILENAME = N'C:\data\Commerce_log.ldf' )
-   FOR ATTACH
+   CREATE DATABASE [Commerce] ON 
+   ( FILENAME = N'/Data/Commerce.mdf' ),
+   ( FILENAME = N'/Data/Commerce_log.ldf' )
+    FOR ATTACH
    GO
    ```
 

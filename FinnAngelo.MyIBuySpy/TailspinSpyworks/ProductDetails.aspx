@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:FormView ID="FormView_Product" runat="server" DataKeyNames="ProductID" 
-        DataSourceID="EDS_Product" 
-        onpageindexchanging="FormView_Product_PageIndexChanging">
+        DataSourceID="EDS_Product" >
+        <%--onpageindexchanging="FormView_Product_PageIndexChanging"--%>
         <ItemTemplate>
         <div class="ContentHead"><%# Eval("ModelName") %></div><br />
         <table  border="0">
